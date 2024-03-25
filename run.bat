@@ -1,18 +1,33 @@
 @echo off
+
 chcp 65001 > nul
 
+REM Python 설치 확인
 python --version >nul 2>&1
 if %errorlevel% equ 0 (
-    echo Python이 이미 설치되어 있습니다.
-    python --version
+   echo Python이 이미 설치되어 있습니다.
+   python --version
 ) else (
-    echo Python이 설치되어 있지 않습니다. Microsoft Store에서 설치를 시작합니다.
-    
-    REM Microsoft Store 열기
-    start "" "ms-windows-store://pdp/?productid=9P7QFQMJRFP7"
-    
-    echo Microsoft Store에서 Python 3 설치를 진행해 주세요.
-    pause
+   echo Python이 설치되어 있지 않습니다. Microsoft Store에서 설치를 시작합니다.
+   REM Microsoft Store 열기
+   start "" "ms-windows-store://pdp/?productid=9P7QFQMJRFP7"
+   echo Microsoft Store에서 Python 3 설치를 진행해 주세요.
+   pause
+)
+
+REM Git 설치 확인
+git --version >nul 2>&1
+if %errorlevel% equ 0 (
+   echo Git이 이미 설치되어 있습니다.
+   git --version
+) else (
+   echo Git이 설치되어 있지 않습니다. Git 설치를 시작합니다.
+   REM Git 설치 파일 다운로드
+   curl -L -o git-installer.exe https://github.com/git-for-windows/git/releases/download/v2.30.0.windows.1/Git-2.30.0-64-bit.exe
+   REM Git 설치 파일 실행
+   start "" git-installer.exe /VERYSILENT /NORESTART /NOCANCEL /SP- /CLOSEAPPLICATIONS /RESTARTAPPLICATIONS /COMPONENTS="icons,ext\reg\shellhere,assoc,assoc_sh"
+   echo Git 설치가 완료될 때까지 잠시 기다려 주세요...
+   timeout /t 30 /nobreak >nul
 )
 
 REM 현재 디렉토리 설정
@@ -26,21 +41,21 @@ set REPO_DIR=%VENV_DIR%\srcs
 
 REM 가상 환경이 없으면 생성
 if not exist %VENV_DIR% (
-    echo 가상 환경 생성 중...
-    python -m venv %VENV_DIR%
+   echo 가상 환경 생성 중...
+   python -m venv %VENV_DIR%
 )
 
 REM 저장소가 없으면 클론
 if not exist %REPO_DIR% (
-    echo 저장소 클론 중...
-    cd %VENV_DIR%
-    git clone https://github.com/donggyun112/work.git srcs
-    cd %CURRENT_DIR%
+   echo 저장소 클론 중...
+   cd %VENV_DIR%
+   git clone https://github.com/donggyun112/work.git srcs
+   cd %CURRENT_DIR%
 ) else (
-    echo 저장소 업데이트 중...
-    cd %REPO_DIR%
-    git pull
-    cd %CURRENT_DIR%
+   echo 저장소 업데이트 중...
+   cd %REPO_DIR%
+   git pull
+   cd %CURRENT_DIR%
 )
 
 REM requirements.txt 파일 경로 설정
@@ -48,10 +63,10 @@ set REQUIREMENTS_FILE=%VENV_DIR%\requirements.txt
 
 REM requirements.txt 파일이 없으면 생성
 if not exist %REQUIREMENTS_FILE% (
-    echo requirements.txt 파일 생성 중...
-    echo openpyxl > %REQUIREMENTS_FILE%
-    echo pandas >> %REQUIREMENTS_FILE%
-    echo pillow >> %REQUIREMENTS_FILE%
+   echo requirements.txt 파일 생성 중...
+   echo openpyxl > %REQUIREMENTS_FILE%
+   echo pandas >> %REQUIREMENTS_FILE%
+   echo pillow >> %REQUIREMENTS_FILE%
 )
 
 REM 가상 환경 활성화
@@ -65,15 +80,12 @@ set REQUIREMENTS_FILE=%VENV_DIR%\test.bat
 
 REM test.bat 파일이 없으면 생성
 if not exist %REQUIREMENTS_FILE% (
-    echo test.txt 파일 생성 중...
-    echo @echo off > %REQUIREMENTS_FILE%
-    echo call %VENV_DIR%\Scripts\deactivate.bat >> %REQUIREMENTS_FILE%
-    echo python3 srcs\test.py >> %REQUIREMENTS_FILE%
-    echo call %VENV_DIR%\Scripts\deactivate.bat >> %REQUIREMENTS_FILE%
+   echo test.txt 파일 생성 중...
+   echo @echo off > %REQUIREMENTS_FILE%
+   echo call %VENV_DIR%\Scripts\deactivate.bat >> %REQUIREMENTS_FILE%
+   echo python3 srcs\test.py >> %REQUIREMENTS_FILE%
+   echo call %VENV_DIR%\Scripts\deactivate.bat >> %REQUIREMENTS_FILE%
 )
-
-
-
 
 REM 가상 환경 비활성화
 call %VENV_DIR%\Scripts\deactivate.bat

@@ -1,15 +1,12 @@
-from openpyxl import load_workbook
-from openpyxl.drawing.image import Image
+def find_sheet_name(file_name):
+	for i in range(0, len(df.columns)):
+		df = pd.read_excel(file_name, header=i)
 
-workbook = load_workbook('output.xlsx')
-sheet = workbook.active
-
-img = Image('images/test.png')
-
-# 이미지를 B3 셀의 오른쪽 아래 모서리에 삽입
-sheet.add_image(img, anchor=(2.8, 3.8))
-
-# 이미지를 C4 셀의 가운데에 삽입
-sheet.add_image(img, anchor=(3.5, 4.5))
-
-workbook.save('example_with_images.xlsx')
+		column_names = ['위치', '원두종류', '사진', '합계']
+		for column_name in column_names:
+			if column_name in df.columns:
+				print(f"'{column_name}' 열이 존재합니다.")
+				return i
+			else:
+				print(f"'{column_name}' 열이 존재하지 않습니다.")
+	return -1

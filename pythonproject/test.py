@@ -9,13 +9,12 @@ from tkinter import filedialog
 
 import pandas as pd
 
-def find_sheet_name(file_name):
+def find_sheet_name(file_name, column_names):
     try:
         # 전체 데이터프레임 읽기
         df = pd.read_excel(file_name, header=None)
         max_rows = df.shape[0]  # 전체 행 수
         
-        column_names = input("열 이름을 입력하세요: ").split()
         for i in range(max_rows):
             try:
                 # 각 행을 헤더로 지정하여 데이터프레임 읽기
@@ -41,10 +40,12 @@ if not file_name:
     print("파일을 선택하지 않았습니다. 프로그램을 종료합니다.")
     exit()
 
-
+image_column = input("열 이름을 입력하세요: ").split()
+image_column : str
+# print(f"이미지를 삽입할 열 이름: {image_column}")
 
 try:
-	col_idx = find_sheet_name(file_name)
+	col_idx = find_sheet_name(file_name, image_column)
 	if col_idx == -1:
 		print("해당 열을 찾을 수 없습니다. 프로그램을 종료합니다.")
 		exit()
@@ -55,9 +56,8 @@ except Exception as e:
     exit()
 
 
-
+image_column = image_column[0]
 # 이미지를 삽입할 열 이름
-image_column = '사진'
 
 # 엑셀 파일 로드
 workbook = load_workbook(file_name)
@@ -77,16 +77,17 @@ for i, cell in enumerate(sheet['D'], start=1):
 column_index = df.columns.get_loc(image_column)
 
 # 데이터프레임의 각 행을 반복하면서 이미지 삽입
+print(col_idx)
 try:
 	for i, row in df.iterrows():
-		cell = sheet.cell(row=i+4, column=column_index+1)  # openpyxl은 1부터 시작
+		cell = sheet.cell(row=i+(col_idx + 2), column=column_index+1)  # openpyxl은 1부터 시작
 		
 		# 이미 이미지가 있는 경우 다음 행으로 넘어감
 		if cell.value:
-			print(f"이미지가 이미 있습니다. 행: {i+4}")
+			print(f"이미지가 이미 있습니다. 행: {i+column_index+1}")
 			continue
 		else:
-			print(f"이미지를 삽입합니다. 행: {i+4}")
+			print(f"이미지를 삽입합니다. 행: {i+column_index+1}")
 			
 			# 파일 탐색기 창 열기
 			file_path = filedialog.askopenfilename(parent=None, filetypes=[("Image files", "*.jpg *.jpeg *.png *.bmp *.gif")])

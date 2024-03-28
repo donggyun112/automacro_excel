@@ -1,0 +1,112 @@
+==================================================
+                 Excel 파일을 선택하세요.                 
+==================================================
+==================================================
+                      시트 목록                       
+==================================================
+1. 대금청구서
+2. 경비배분표
+3. 사용현황
+4. 커피머신 재료 매출 전표
+5. 카운터 증빙 사진
+6. 기기List
+7. 단가표
+==================================================
+사용할 시트의 번호를 입력하세요: ==================================================
+               선택한 시트: 5. 카운터 증빙 사진               
+==================================================
+--------------------------------------------------
+열 이름을 입력하세요: ['사진'] <class 'list'>
+                  0    1      2    3      4        5
+0         카운터 증빙 사진  NaN    NaN  NaN    NaN      NaN
+1               NaN  NaN    NaN  NaN    NaN      NaN
+2                위치  NaN   원두종류   사진     합계      NaN
+3     서울대 공동연구소\nB동  10층  다크블론드  NaN   1976   8271.0
+4               NaN  NaN    NaN  NaN    641      NaN
+5               NaN  NaN    NaN  NaN   5654      NaN
+6               NaN  NaN    핫초코  NaN    385    549.0
+7               NaN  NaN    NaN  NaN    164      NaN
+8               NaN   9층  다크블론드  NaN   1718   5742.0
+9               NaN  NaN    NaN  NaN   1251      NaN
+10              NaN  NaN    NaN  NaN   2773      NaN
+11              NaN  NaN    핫초코  NaN    272    390.0
+12              NaN  NaN    NaN  NaN    118      NaN
+13              NaN   8층  다크블론드  NaN   4770  10313.0
+14              NaN  NaN    NaN  NaN    935      NaN
+15              NaN  NaN    NaN  NaN   4608      NaN
+16              NaN  NaN    핫초코  NaN    212    286.0
+17              NaN  NaN    NaN  NaN     74      NaN
+18              NaN   7층  다크블론드  NaN   1568   5201.0
+19              NaN  NaN    NaN  NaN    595      NaN
+20              NaN  NaN    NaN  NaN   3038      NaN
+21              NaN  NaN    핫초코  NaN    192    305.0
+22              NaN  NaN    NaN  NaN    113      NaN
+23              NaN   3층  다크블론드  NaN   5366   6304.0
+24              NaN  NaN    NaN  NaN    383      NaN
+25              NaN  NaN    NaN  NaN    555      NaN
+26              NaN  NaN    핫초코  NaN    140    276.0
+27              NaN  NaN    NaN  NaN    136      NaN
+28  서울 R&D 캠퍼스\nC타워   8층  다크블론드  NaN   1575   4816.0
+29              NaN  NaN    NaN  NaN    760      NaN
+30              NaN  NaN    NaN  NaN   2481      NaN
+31              NaN  NaN    핫초코  NaN    342    438.0
+32              NaN  NaN    NaN  NaN     96      NaN
+33              NaN   7층  다크블론드  NaN   5598  17724.0
+34              NaN  NaN    NaN  NaN   1938      NaN
+35              NaN  NaN    NaN  NaN  10188      NaN
+36              NaN  NaN    핫초코  NaN   2101   3269.0
+37              NaN  NaN    NaN  NaN   1168      NaN
+38              NaN  NaN   딥인텐소  NaN   5071  16372.0
+39              NaN  NaN    NaN  NaN   1242      NaN
+40              NaN  NaN    NaN  NaN  10059      NaN
+41              NaN  NaN    핫초코  NaN   1527   2051.0
+42              NaN  NaN    NaN  NaN    524      NaN
+0               NaN  NaN    NaN  NaN    NaN      NaN
+0               NaN  NaN    NaN  NaN    NaN      NaN
+1                위치  NaN   원두종류   사진     합계      NaN
+2     서울대 공동연구소\nB동  10층  다크블론드  NaN   1976   8271.0
+3               NaN  NaN    NaN  NaN    641      NaN
+4               NaN  NaN    NaN  NaN   5654      NaN
+5               NaN  NaN    핫초코  NaN    385    549.0
+6               NaN  NaN    NaN  NaN    164      NaN
+7               NaN   9층  다크블론드  NaN   1718   5742.0
+8               NaN  NaN    NaN  NaN   1251      NaN
+9               NaN  NaN    NaN  NaN   2773      NaN
+10              NaN  NaN    핫초코  NaN    272    390.0
+11              NaN  NaN    NaN  NaN    118      NaN
+12              NaN   8층  다크블론드  NaN   4770  10313.0
+13              NaN  NaN    NaN  NaN    935      NaN
+14              NaN  NaN    NaN  NaN   4608      NaN
+15              NaN  NaN    핫초코  NaN    212    286.0
+16              NaN  NaN    NaN  NaN     74      NaN
+17              NaN   7층  다크블론드  NaN   1568   5201.0
+18              NaN  NaN    NaN  NaN    595      NaN
+19              NaN  NaN    NaN  NaN   3038      NaN
+20              NaN  NaN    핫초코  NaN    192    305.0
+21              NaN  NaN    NaN  NaN    113      NaN
+22              NaN   3층  다크블론드  NaN   5366   6304.0
+23              NaN  NaN    NaN  NaN    383      NaN
+24              NaN  NaN    NaN  NaN    555      NaN
+25              NaN  NaN    핫초코  NaN    140    276.0
+26              NaN  NaN    NaN  NaN    136      NaN
+27  서울 R&D 캠퍼스\nC타워   8층  다크블론드  NaN   1575   4816.0
+28              NaN  NaN    NaN  NaN    760      NaN
+29              NaN  NaN    NaN  NaN   2481      NaN
+30              NaN  NaN    핫초코  NaN    342    438.0
+31              NaN  NaN    NaN  NaN     96      NaN
+32              NaN   7층  다크블론드  NaN   5598  17724.0
+33              NaN  NaN    NaN  NaN   1938      NaN
+34              NaN  NaN    NaN  NaN  10188      NaN
+35              NaN  NaN    핫초코  NaN   2101   3269.0
+36              NaN  NaN    NaN  NaN   1168      NaN
+37              NaN  NaN   딥인텐소  NaN   5071  16372.0
+38              NaN  NaN    NaN  NaN   1242      NaN
+39              NaN  NaN    NaN  NaN  10059      NaN
+40              NaN  NaN    핫초코  NaN   1527   2051.0
+41              NaN  NaN    NaN  NaN    524      NaN
+==================================================
+              '2'번째 행에 '사진' 열이 존재합니다              
+==================================================
+==================================================
+                   프로그램을 종료합니다.                   
+==================================================

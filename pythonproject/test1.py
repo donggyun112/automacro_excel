@@ -1,21 +1,20 @@
-import tkinter as tk
+from openpyxl import load_workbook
 
-def print_to_gui(text):
-    output_text.insert(tk.END, text + "\n")
-    output_text.see(tk.END)  # 자동으로 스크롤을 맨 아래로 내림
+def check_image(file_path, cell_address):
+    wb = load_workbook(file_path)
+    ws = wb.active
+    print(ws['D5'])
+    exit()
+    cell = ws[cell_address]
+    if cell.has_hyperlink:
+        if 'image' in cell.hyperlink.target:
+            print(f"셀 {cell_address}에 이미지가 있습니다.")
+            return True
+    
+    print(f"셀 {cell_address}에 이미지가 없습니다.")
+    return False
 
-# Tkinter 창 생성
-root = tk.Tk()
-root.title("Output Viewer")
-
-# 텍스트 위젯 생성
-output_text = tk.Text(root, height=20, width=80)
-output_text.pack()
-
-# 출력문 예시
-print_to_gui("Hello, World!")
-print_to_gui("This is a sample output.")
-print_to_gui("You can add multiple lines of text.")
-
-# GUI 이벤트 루프 시작
-root.mainloop()
+# 사용 예시
+file_path = "output.xlsx"
+cell_address = "사진"
+check_image(file_path, cell_address)

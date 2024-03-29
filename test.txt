@@ -1,3 +1,0 @@
-print("=" * 50)
-                        print("{:^50}".format(f"'{i}'번째 행에 '{column_name}' 열이 존재합니다"))
-                        print("=" * 50)

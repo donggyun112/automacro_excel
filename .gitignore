@@ -1,0 +1,25 @@
+# Ignore compiled files
+*.class
+*.jar
+*.war
+
+# Ignore IDE-specific files
+.idea/
+.vscode/
+
+# Ignore build output
+/build/
+/dist/
+
+# Ignore log files
+*.log
+
+# Ignore temporary files
+*.tmp
+*.bak
+
+# Ignore sensitive information
+config.ini
+secrets.txt
+a.out
+.DS_Store
